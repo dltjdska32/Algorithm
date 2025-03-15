@@ -14,7 +14,7 @@ class Main {
         int optionalPrice = 0;
 
         // 답.
-        int answerPrice = 0;
+        long answerPrice = 0L;
         
         //거리
         String[] lens = br.readLine().split(" ");
@@ -41,21 +41,21 @@ class Main {
         
         for(int i = 0; i < informs.size(); i++){
             if(i == 0) {
-                answerPrice = informs.get(i).price * informs.get(i).len;
+                answerPrice = (long) informs.get(i).price * informs.get(i).len;
                 optionalPrice = informs.get(i).price;
             }
 
             // 0보다 클경우 최적의 가격과 비교 크다면 최적의값 변화 x
             // answerPrice 에 현재거리 x optionalPrice 더해줌
             if(i > 0 && informs.get(i).price > optionalPrice){
-                answerPrice += informs.get(i).len * optionalPrice;
+                answerPrice +=  (long) informs.get(i).len * optionalPrice;
             } 
 
             // 0보다 클경우 최적의 가격과 비교 최적의 값보다 작다면 최적의값에 현재 가격넣어줌
             // answerPrice 에 현재거리 x optionalPrice 더해줌
             if(i > 0 && informs.get(i).price <= optionalPrice){
                 optionalPrice = informs.get(i).price;
-                answerPrice += informs.get(i).len * optionalPrice;
+                answerPrice += (long) informs.get(i).len * optionalPrice;
             } 
 
             
